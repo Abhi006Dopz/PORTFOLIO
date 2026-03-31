@@ -447,24 +447,6 @@
     text-transform: uppercase;
     margin-top: 0.3rem;
   }
-  .about-badge {
-    position: absolute; top: 1.5rem; right: 1.5rem;
-    width: 80px; height: 80px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--bg);
-  }
-  .badge-text {
-    font-family: var(--ff-mono);
-    font-size: 0.5rem;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 1.6;
-  }
-
   /* ── SERVICES ── */
   #services {
     padding: 8rem 3rem;
@@ -546,49 +528,62 @@
     display: flex; justify-content: space-between; align-items: flex-end;
     margin-bottom: 3rem;
   }
-  .gallery-filter {
-    display: flex; gap: 1rem;
+  .gallery-nav {
+    display: flex; gap: 1rem; align-items: center;
   }
-  .filter-btn {
+  .gallery-all-label {
     font-family: var(--ff-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
     text-transform: uppercase;
-    color: var(--muted);
-    background: none;
-    border: 1px solid transparent;
-    padding: 0.4rem 1rem;
+    margin-right: 2rem;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 4px;
+  }
+  .slider-btn {
+    width: 50px; height: 50px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    display: flex; align-items: center; justify-content: center;
     cursor: none;
     transition: all 0.3s;
+    clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);
   }
-  .filter-btn.active, .filter-btn:hover {
-    color: var(--accent);
+  .slider-btn:hover {
     border-color: var(--accent);
+    color: var(--accent);
     background: var(--glow);
   }
 
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
-    gap: 1rem;
+  .gallery-slider-container {
+    position: relative;
+    margin: 0 -3rem;
+    padding: 0 3rem;
+    overflow: hidden;
   }
+  .gallery-grid {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    padding-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+  }
+  .gallery-grid::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
   .g-item {
+    flex: 0 0 450px;
+    scroll-snap-align: start;
     position: relative;
     overflow: hidden;
     background: var(--surface);
     border: 1px solid var(--border);
-    aspect-ratio: auto;
+    aspect-ratio: 16 / 11;
     cursor: none;
   }
-
-  .g-item:nth-child(1) { grid-column: span 7; grid-row: span 2; aspect-ratio: 4/3; }
-  .g-item:nth-child(2) { grid-column: span 5; aspect-ratio: 3/2; }
-  .g-item:nth-child(3) { grid-column: span 5; aspect-ratio: 3/2; }
-  .g-item:nth-child(4) { grid-column: span 4; aspect-ratio: 1; }
-  .g-item:nth-child(5) { grid-column: span 4; aspect-ratio: 1; }
-  .g-item:nth-child(6) { grid-column: span 4; aspect-ratio: 1; }
 
   .g-item-bg {
     position: absolute; inset: 0;
@@ -963,7 +958,7 @@
 
 <!-- ── ABOUT ── -->
 <section id="about">
-  <div class="about-text-side reveal">
+  <div class="about-text-side">
     <div class="section-tag">About Me</div>
     <h2 class="about-title">WHERE ART MEETS TECHNICAL PRECISION</h2>
     <p class="about-text">
@@ -987,23 +982,9 @@
     </div>
   </div>
 
-  <div class="about-visual reveal">
+  <div class="about-visual">
     <div class="about-card">
-      <img src="https://picsum.photos/seed/artist/600/800" alt="Artist Profile">
-      <div class="about-card::before"></div>
-      <div class="cube-scene">
-        <div class="cube">
-          <div class="face front"></div>
-          <div class="face back"></div>
-          <div class="face left"></div>
-          <div class="face right"></div>
-          <div class="face top"></div>
-          <div class="face bottom"></div>
-        </div>
-      </div>
-      <div class="about-badge">
-        <div class="badge-text">AVAILABLE<br>FOR<br>FREELANCE</div>
-      </div>
+      <img src="propic1.jpeg" alt="3D Abstract Concept">
       <div class="about-card-inner">
         <span class="about-card-label">ABHISHEK MB</span>
         <span class="about-card-sub">3D Artist</span>
@@ -1014,13 +995,13 @@
 
 <!-- ── SERVICES ── -->
 <section id="services">
-  <div class="services-header reveal">
+  <div class="services-header">
     <div>
       <div class="section-tag">What I Do</div>
       <h2 class="services-title">SPECIALTIES</h2>
     </div>
   </div>
-  <div class="services-grid reveal">
+  <div class="services-grid">
     <div class="service-card">
       <div class="service-num">01</div>
       <span class="service-icon">📦</span>
@@ -1062,83 +1043,178 @@
 
 <!-- ── GALLERY ── -->
 <section id="gallery">
-  <div class="gallery-header reveal">
+  <div class="gallery-header">
     <div>
       <div class="section-tag">Selected Work</div>
       <h2 class="services-title">PORTFOLIO</h2>
     </div>
-    <div class="gallery-filter">
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Arch Viz</button>
-      <button class="filter-btn">Product</button>
-      <button class="filter-btn">Abstract</button>
+    <div class="gallery-nav">
+      <span class="gallery-all-label">Collection / All</span>
+      <button class="slider-btn" id="slidePrev">←</button>
+      <button class="slider-btn" id="slideNext">→</button>
     </div>
   </div>
 
-  <div class="gallery-grid">
-    <!-- Item 1 – large -->
-    <div class="g-item reveal">
-      <div class="g-item-bg gb1"><img src="https://picsum.photos/seed/arch/800/600" alt="Void Tower"></div>
-      <div class="g-arrow">↗</div>
-      <div class="g-overlay">
-        <div class="g-info">
-          <span class="g-cat">Product Rendering | Blender</span>
-          <span class="g-title">APPLE WATCH VIZ</span>
+  <div class="gallery-slider-container">
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="g-item">
+        <div class="g-item-bg gb1"><img src="https://images.unsplash.com/photo-1546868871-70c122467d8b?auto=format&fit=crop&q=80&w=800" alt="Apple Watch Render"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">3D Visualization</span>
+            <span class="g-title">APPLE WATCH VIZ</span>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Item 2 -->
-    <div class="g-item reveal">
-      <div class="g-item-bg gb2"><img src="https://picsum.photos/seed/product/600/400" alt="Obsidian Flux"></div>
-      <div class="g-arrow">↗</div>
-      <div class="g-overlay">
-        <div class="g-info">
-          <span class="g-cat">Game & VR Asset | Unity</span>
-          <span class="g-title">VR HARD-SURFACE ASSET</span>
+      <div class="g-item">
+        <div class="g-item-bg gb2"><img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&q=80&w=800" alt="VR Headset Design"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Game Assets</span>
+            <span class="g-title">VR HARD-SURFACE ASSET</span>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Item 3 -->
-    <div class="g-item reveal">
-      <div class="g-item-bg gb3"><img src="https://picsum.photos/seed/abstract/600/400" alt="Orbital Drift"></div>
-      <div class="g-arrow">↗</div>
-      <div class="g-overlay">
-        <div class="g-info">
-          <span class="g-cat">Abstract Art</span>
-          <span class="g-title">ORBITAL DRIFT</span>
+      <div class="g-item">
+        <div class="g-item-bg gb3"><img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800" alt="3D Fabric Flow"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Apparels</span>
+            <span class="g-title">ORBITAL DRIFT</span>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Item 4 -->
-    <div class="g-item reveal">
-      <div class="g-item-bg gb4"><img src="https://picsum.photos/seed/sculpt/400/400" alt="Apex Form"></div>
-      <div class="g-arrow">↗</div>
-      <div class="g-overlay">
-        <div class="g-info">
-          <span class="g-cat">Sculpting</span>
-          <span class="g-title">APEX FORM</span>
+      <div class="g-item">
+        <div class="g-item-bg gb4"><img src="https://images.unsplash.com/photo-1633167606207-d840b5070fc2?auto=format&fit=crop&q=80&w=800" alt="Geometric Sculpt"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Product Design</span>
+            <span class="g-title">APEX FORM</span>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Item 5 -->
-    <div class="g-item reveal">
-      <div class="g-item-bg gb5"><img src="https://picsum.photos/seed/motion/400/400" alt="Morphic Loop"></div>
-      <div class="g-arrow">↗</div>
-      <div class="g-overlay">
-        <div class="g-info">
-          <span class="g-cat">Motion Design</span>
-          <span class="g-title">MORPHIC LOOP</span>
+      <div class="g-item">
+        <div class="g-item-bg gb5"><img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=800" alt="Digital Textile"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Digital Fashion</span>
+            <span class="g-title">MORPHIC LOOP</span>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Item 6 -->
-    <div class="g-item reveal">
-      <div class="g-item-bg gb6"><img src="https://picsum.photos/seed/game/400/400" alt="Grid Nexus"></div>
-      <div class="g-arrow">↗</div>
-      <div class="g-overlay">
-        <div class="g-info">
-          <span class="g-cat">Game Assets</span>
-          <span class="g-title">GRID NEXUS</span>
+      <div class="g-item">
+        <div class="g-item-bg gb6"><img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800" alt="Sci-Fi Grid Environment"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Environment Art</span>
+            <span class="g-title">GRID NEXUS</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="g-item-bg gb1"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Mechanical Parts"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Hard Surface</span>
+            <span class="g-title">MECHANICAL CORE</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="g-item-bg gb2"><img src="https://images.unsplash.com/photo-1605773527852-c546a8584ea3?auto=format&fit=crop&q=80&w=800" alt="Glass Refraction Product"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Product Render</span>
+            <span class="g-title">SILICON FLASK</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="g-item-bg gb3"><img src="https://images.unsplash.com/photo-1635492491273-455af7728453?auto=format&fit=crop&q=80&w=800" alt="Abstract Fabric Study"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Apparels</span>
+            <span class="g-title">NEO-FABRIC STUDY</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="g-item-bg gb4"><img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&q=80&w=800" alt="Studio Lighting Render"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Lighting Tech</span>
+            <span class="g-title">LUMINA INTERIOR</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="g-item-bg gb5"><img src="https://images.unsplash.com/photo-1614728263952-84ea206f99b6?auto=format&fit=crop&q=80&w=800" alt="Low Poly Planet"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Optimization</span>
+            <span class="g-title">LOW-POLY TERRAIN</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="g-item-bg gb6"><img src="https://images.unsplash.com/photo-1626908013351-800ddd734b55?auto=format&fit=crop&q=80&w=800" alt="Neon Cyber Asset"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Game Assets</span>
+            <span class="g-title">CYBER HILT</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="g-item-bg gb1"><img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=800" alt="Abstract Shape"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Simulation</span>
+            <span class="g-title">ORGANIC VOID</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="g-item-bg gb2"><img src="https://images.unsplash.com/photo-1614854262318-831a8c99b112?auto=format&fit=crop&q=80&w=800" alt="Colorful Abstract"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Digital Fashion</span>
+            <span class="g-title">CHROMATIC FABRIC</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="g-item-bg gb3"><img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&q=80&w=800" alt="C4D Abstract"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Environment Art</span>
+            <span class="g-title">NEBULOUS CORE</span>
+          </div>
+        </div>
+      </div>
+      <div class="g-item">
+        <div class="g-item-bg gb4"><img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&q=80&w=800" alt="Soft Geometric"></div>
+        <div class="g-arrow">↗</div>
+        <div class="g-overlay">
+          <div class="g-info">
+            <span class="g-cat">Product Design</span>
+            <span class="g-title">MINIMALIST FORM</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1148,11 +1224,11 @@
 <!-- ── EXPERIENCE ── -->
 <section id="experience">
   <div class="process-inner">
-    <div class="reveal">
+    <div>
       <div class="section-tag">Career Path</div>
       <h2 class="services-title">EXPERIENCE</h2>
     </div>
-    <div class="process-steps reveal">
+    <div class="process-steps">
       <div class="process-step">
         <div class="step-num">01</div>
         <div class="step-content">
@@ -1171,11 +1247,11 @@
       </div>
     </div>
 
-    <div class="reveal" style="margin-top: 6rem;">
+    <div style="margin-top: 6rem;">
       <div class="section-tag">The Edge</div>
       <h2 class="services-title">WHY WORK WITH ME</h2>
     </div>
-    <div class="process-steps reveal">
+    <div class="process-steps">
       <div class="process-step">
         <div class="step-num">✦</div>
         <div class="step-content">
@@ -1196,7 +1272,7 @@
 
 <!-- ── CONTACT ── -->
 <section id="contact">
-  <div class="reveal">
+  <div>
     <div class="section-tag">Get In Touch</div>
     <h2 class="contact-title">
       LET'S WORK<br>
@@ -1248,7 +1324,7 @@
     </div>
   </div>
 
-  <div class="reveal">
+  <div>
     <form class="contact-form" onsubmit="handleSubmit(event)">
       <div class="form-group">
         <label class="form-label">Your Name</label>
@@ -1322,23 +1398,17 @@
   });
 
   // ── Scroll Reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
+  // ── Gallery Slider
+  const galleryGrid = document.getElementById('galleryGrid');
+  const btnPrev = document.getElementById('slidePrev');
+  const btnNext = document.getElementById('slideNext');
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  btnPrev.addEventListener('click', () => {
+    galleryGrid.scrollLeft -= 480;
+  });
 
-  // ── Gallery Filter
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
+  btnNext.addEventListener('click', () => {
+    galleryGrid.scrollLeft += 480;
   });
 
   // ── Form submit
