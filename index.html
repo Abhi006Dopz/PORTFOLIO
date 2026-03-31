@@ -7,6 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Syne+Mono&display=swap" rel="stylesheet" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    // Initialize EmailJS with your actual Public Key from the dashboard
+    emailjs.init({
+      publicKey: "FCxbDZEM74HwbmQ9L",
+    });
+  })();
+</script>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -491,6 +500,18 @@
   }
   .service-card:hover { background: rgba(212,255,71,0.02); }
   .service-card:hover::before { transform: scaleX(1); }
+
+  .service-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+    transition: opacity 0.4s, transform 0.6s;
+    z-index: 0;
+  }
+  .service-card:hover .service-bg-img { opacity: 0.2; transform: scale(1.1); }
+  .service-card > *:not(.service-bg-img) { position: relative; z-index: 1; }
 
   .service-num {
     font-family: var(--ff-display);
@@ -1003,38 +1024,43 @@
   </div>
   <div class="services-grid">
     <div class="service-card">
+      <img src="product modeling.png" class="service-bg-img" alt="">
       <div class="service-num">01</div>
-      <span class="service-icon">📦</span>
       <h3 class="service-name">PRODUCT MODELING</h3>
       <p class="service-desc">Clean, high-fidelity 3D modeling for products, ensuring every curve and detail is captured with mathematical precision.</p>
     </div>
     <div class="service-card">
+      <img src="texturing.png" class="service-bg-img" alt="">
       <div class="service-num">02</div>
-      <span class="service-icon">🎨</span>
+      
       <h3 class="service-name">TEXTURING</h3>
       <p class="service-desc">Creation of realistic PBR materials and textures using Substance Painter to give models life-like surface qualities.</p>
     </div>
     <div class="service-card">
+      <img src="pro rendering.png" class="service-bg-img" alt="">
       <div class="service-num">03</div>
-      <span class="service-icon">📸</span>
+     
       <h3 class="service-name">PRO RENDERING</h3>
       <p class="service-desc">Photorealistic studio lighting and rendering for e-commerce, social media, and professional marketing presentations.</p>
     </div>
     <div class="service-card">
+      <img src="hard surface moddeling.png" class="service-bg-img" alt="">
       <div class="service-num">04</div>
-      <span class="service-icon">⚙️</span>
+    
       <h3 class="service-name">HARD-SURFACE</h3>
       <p class="service-desc">Specialized asset creation for industrial designs, mechanical parts, and complex geometric structures.</p>
     </div>
     <div class="service-card">
+      <img src="vr.png" class="service-bg-img" alt="">
       <div class="service-num">05</div>
-      <span class="service-icon">🎮</span>
+      
       <h3 class="service-name">VR OPTIMIZATION</h3>
       <p class="service-desc">High-to-low poly workflows and optimized texture baking for real-time performance in Unity and VR applications.</p>
     </div>
     <div class="service-card">
+      <img src="3d presentation.png" class="service-bg-img" alt="">
       <div class="service-num">06</div>
-      <span class="service-icon">📽️</span>
+   
       <h3 class="service-name">3D PRESENTATION</h3>
       <p class="service-desc">Crafting the visual narrative of your project through cinematic angles and polished post-production.</p>
     </div>
@@ -1058,72 +1084,72 @@
   <div class="gallery-slider-container">
     <div class="gallery-grid" id="galleryGrid">
       <div class="g-item">
-        <div class="g-item-bg gb1"><img src="https://images.unsplash.com/photo-1546868871-70c122467d8b?auto=format&fit=crop&q=80&w=800" alt="Apple Watch Render"></div>
+        <div class="g-item-bg gb1"><img src="p (4).png"></div>
         <div class="g-arrow">↗</div>
         <div class="g-overlay">
           <div class="g-info">
             <span class="g-cat">3D Visualization</span>
-            <span class="g-title">APPLE WATCH VIZ</span>
+            <span class="g-title">Product Render</span>
           </div>
         </div>
       </div>
       <div class="g-item">
-        <div class="g-item-bg gb2"><img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&q=80&w=800" alt="VR Headset Design"></div>
+        <div class="g-item-bg gb2"><img src="p (3).png"></div>
         <div class="g-arrow">↗</div>
         <div class="g-overlay">
           <div class="g-info">
-            <span class="g-cat">Game Assets</span>
-            <span class="g-title">VR HARD-SURFACE ASSET</span>
+            <span class="g-cat">3D Visualization</span>
+            <span class="g-title">Product Render</span>
           </div>
         </div>
       </div>
       <div class="g-item">
-        <div class="g-item-bg gb3"><img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800" alt="3D Fabric Flow"></div>
+        <div class="g-item-bg gb3"><img src="p (2).png"></div>
         <div class="g-arrow">↗</div>
         <div class="g-overlay">
           <div class="g-info">
-            <span class="g-cat">Apparels</span>
-            <span class="g-title">ORBITAL DRIFT</span>
+            <span class="g-cat">3D Visualization</span>
+            <span class="g-title">Product Render</span>
           </div>
         </div>
       </div>
       <div class="g-item">
-        <div class="g-item-bg gb4"><img src="https://images.unsplash.com/photo-1633167606207-d840b5070fc2?auto=format&fit=crop&q=80&w=800" alt="Geometric Sculpt"></div>
+        <div class="g-item-bg gb4"><img src="p (1).png"></div>
         <div class="g-arrow">↗</div>
         <div class="g-overlay">
           <div class="g-info">
-            <span class="g-cat">Product Design</span>
-            <span class="g-title">APEX FORM</span>
+            <span class="g-cat">3D Visualization</span>
+            <span class="g-title">Product Render</span>
           </div>
         </div>
       </div>
       <div class="g-item">
-        <div class="g-item-bg gb5"><img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=800" alt="Digital Textile"></div>
+        <div class="g-item-bg gb5"><img src="HEADPHONE (4).png" alt="Digital Textile"></div>
         <div class="g-arrow">↗</div>
         <div class="g-overlay">
           <div class="g-info">
-            <span class="g-cat">Digital Fashion</span>
-            <span class="g-title">MORPHIC LOOP</span>
+            <span class="g-cat">3D Visualization</span>
+            <span class="g-title">Product Render</span>
           </div>
         </div>
       </div>
       <div class="g-item">
-        <div class="g-item-bg gb6"><img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800" alt="Sci-Fi Grid Environment"></div>
+        <div class="g-item-bg gb6"><img src="renders/AIR (5).png"></div>
         <div class="g-arrow">↗</div>
         <div class="g-overlay">
           <div class="g-info">
-            <span class="g-cat">Environment Art</span>
-            <span class="g-title">GRID NEXUS</span>
+            <span class="g-cat">3D Visualization</span>
+            <span class="g-title">Product Render</span>
           </div>
         </div>
       </div>
       <div class="g-item">
-        <div class="g-item-bg gb1"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Mechanical Parts"></div>
+        <div class="g-item-bg gb1"><img src="renders/BOAT (3).png"></div>
         <div class="g-arrow">↗</div>
         <div class="g-overlay">
           <div class="g-info">
-            <span class="g-cat">Hard Surface</span>
-            <span class="g-title">MECHANICAL CORE</span>
+            <span class="g-cat">3D Visualization</span>
+            <span class="g-title">Product Render</span>
           </div>
         </div>
       </div>
@@ -1240,10 +1266,10 @@
       <div class="process-step">
         <div class="step-num">02</div>
         <div class="step-content">
-          <h3 class="step-name">FREELANCE 3D ARTIST — Ortmor Agency</h3>
+          <h3 class="step-name">2D & 3D Generalist — Ortmor Agency</h3>
           <p class="step-desc">Created hard-surface models, textures, and optimized assets for VR applications. Delivered projects for Dubai-based clients and government presentations.</p>
         </div>
-        <div class="step-tool">Contract</div>
+        <div class="step-tool">Fulltime</div>
       </div>
     </div>
 
@@ -1328,19 +1354,19 @@
     <form class="contact-form" onsubmit="handleSubmit(event)">
       <div class="form-group">
         <label class="form-label">Your Name</label>
-        <input type="text" class="form-input" placeholder="John Doe" />
+        <input type="text" name="user_name" class="form-input"  placeholder="John Doe" required />
       </div>
       <div class="form-group">
         <label class="form-label">Email Address</label>
-        <input type="email" class="form-input" placeholder="john@email.com" />
+        <input type="email" name="user_email" class="form-input" placeholder="john@email.com" required />
       </div>
       <div class="form-group">
         <label class="form-label">Project Type</label>
-        <input type="text" class="form-input" placeholder="Arch Viz / Product / Animation..." />
+        <input type="text" name="project_type" class="form-input" placeholder="Arch Viz / Product / Animation..." />
       </div>
       <div class="form-group">
         <label class="form-label">Tell Me About Your Project</label>
-        <textarea class="form-textarea" placeholder="Describe your idea, timeline, and budget..."></textarea>
+        <textarea name="message" class="form-textarea" placeholder="Describe your idea, timeline, and budget..." required></textarea>
       </div>
       <button type="submit" class="btn-submit">Send Message →</button>
     </form>
@@ -1415,17 +1441,33 @@
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = 'Message Sent ✓';
-    btn.style.background = 'rgba(212,255,71,0.3)';
-    btn.style.color = 'var(--accent)';
-    btn.style.border = '1px solid var(--accent)';
-    setTimeout(() => {
-      btn.textContent = 'Send Message →';
-      btn.style.background = 'var(--accent)';
-      btn.style.color = 'var(--bg)';
-      btn.style.border = 'none';
-      e.target.reset();
-    }, 3000);
+    const originalText = btn.textContent;
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your IDs from EmailJS
+    emailjs.sendForm('service_ch6gcvx', 'template_xdxee7u', e.target)
+      .then(() => {
+        btn.textContent = 'Message Sent ✓';
+        btn.style.background = 'rgba(212,255,71,0.3)';
+        btn.style.color = 'var(--accent)';
+        btn.style.border = '1px solid var(--accent)';
+
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = 'var(--accent)';
+          btn.style.color = 'var(--bg)';
+          btn.style.border = 'none';
+          btn.disabled = false;
+          e.target.reset();
+        }, 3000);
+      }, (error) => {
+        console.log('FAILED...', error);
+        btn.textContent = 'Error! Try Again';
+        btn.disabled = false;
+        setTimeout(() => btn.textContent = originalText, 3000);
+      });
   }
 
   // ── Nav active link highlight on scroll
