@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AXON — 3D Artist Portfolio</title>
+<title>ABHISHEK — 3D Artist Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Syne+Mono&display=swap" rel="stylesheet" />
@@ -365,6 +365,13 @@
     position: relative;
     overflow: hidden;
   }
+  .about-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+  }
   .about-card::before {
     content: '';
     position: absolute; inset: 0;
@@ -571,6 +578,12 @@
   .g-item-bg {
     position: absolute; inset: 0;
     transition: transform 0.6s ease;
+  }
+  .g-item-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
   }
   .g-item:hover .g-item-bg { transform: scale(1.05); }
 
@@ -860,7 +873,7 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <div class="nav-logo">AXON</div>
+  <div class="nav-logo">ABHISHEK M B</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Work</a></li>
@@ -893,15 +906,15 @@
 
   <div class="hero-bar">
     <div class="hero-stat">
-      <span class="stat-num">50+</span>
+      <span class="stat-num">10+</span>
       <span class="stat-label">Projects Completed</span>
     </div>
     <div class="hero-stat">
-      <span class="stat-num">5+</span>
+      <span class="stat-num">2+</span>
       <span class="stat-label">Years Experience</span>
     </div>
     <div class="hero-stat">
-      <span class="stat-num">30+</span>
+      <span class="stat-num">10+</span>
       <span class="stat-label">Happy Clients</span>
     </div>
     <div class="hero-stat">
@@ -920,19 +933,19 @@
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span class="marquee-item">Blender</span>
-    <span class="marquee-item">Cinema 4D</span>
-    <span class="marquee-item">Octane Render</span>
-    <span class="marquee-item">Houdini</span>
+    <span class="marquee-item">Unity</span>
+    <span class="marquee-item">Unreal Engine</span>
+    <span class="marquee-item">Adobe</span>
     <span class="marquee-item">Substance Painter</span>
-    <span class="marquee-item">Redshift</span>
+    <span class="marquee-item">Maya</span>
     <span class="marquee-item">ZBrush</span>
     <span class="marquee-item">After Effects</span>
     <span class="marquee-item">Blender</span>
-    <span class="marquee-item">Cinema 4D</span>
-    <span class="marquee-item">Octane Render</span>
-    <span class="marquee-item">Houdini</span>
+    <span class="marquee-item">Unity</span>
+    <span class="marquee-item">Unreal Engine</span>
+    <span class="marquee-item">Adobe</span>
     <span class="marquee-item">Substance Painter</span>
-    <span class="marquee-item">Redshift</span>
+    <span class="marquee-item">Maya</span>
     <span class="marquee-item">ZBrush</span>
     <span class="marquee-item">After Effects</span>
   </div>
@@ -944,18 +957,18 @@
     <div class="section-tag">About Me</div>
     <h2 class="about-title">PIXELS MEET DIMENSION</h2>
     <p class="about-text">
-      I'm a passionate 3D artist specializing in architectural visualization, product rendering, and abstract digital art. With a love for light, texture, and depth, I create visuals that stop people mid-scroll.
+      I’m a 3D Artist specializing in 3D modeling, texturing, and photorealistic rendering. I’m passionate about creating high-quality visuals that bring products and ideas to life with detail, realism, and strong presentation.
     </p>
     <p class="about-text">
-      Every scene I build starts with a feeling — a mood I want the viewer to experience. From the warmth of a golden-hour interior to the cold silence of a sci-fi void, I chase that emotion until it's rendered in every pixel.
+      My main tools are Blender and Substance Painter, and I enjoy working on product visualization, hard-surface modeling, and realistic renders. I’m always looking to improve my skills, explore new creative opportunities, and grow further in the 3D industry.
     </p>
     <div class="about-skills">
       <span class="skill-tag">Blender</span>
-      <span class="skill-tag">Cinema 4D</span>
+      <span class="skill-tag">Unity</span>
       <span class="skill-tag">ZBrush</span>
-      <span class="skill-tag">Houdini</span>
-      <span class="skill-tag">Octane</span>
-      <span class="skill-tag">Redshift</span>
+      <span class="skill-tag">Adobe</span>
+      <span class="skill-tag">Unreal</span>
+      <span class="skill-tag">Maya</span>
       <span class="skill-tag">Substance</span>
       <span class="skill-tag">Photoshop</span>
       <span class="skill-tag">Motion Design</span>
@@ -965,6 +978,7 @@
 
   <div class="about-visual reveal">
     <div class="about-card">
+      <img src="https://picsum.photos/seed/artist/600/800" alt="Artist Profile">
       <div class="about-card::before"></div>
       <div class="cube-scene">
         <div class="cube">
@@ -1053,20 +1067,7 @@
   <div class="gallery-grid">
     <!-- Item 1 – large -->
     <div class="g-item reveal">
-      <div class="g-item-bg gb1">
-        <div class="g-render">
-          <svg class="g-shape" width="200" height="200" viewBox="0 0 200 200">
-            <polygon points="100,20 180,80 160,170 40,170 20,80" fill="none" stroke="rgba(212,255,71,0.2)" stroke-width="1"/>
-            <polygon points="100,40 160,90 145,160 55,160 40,90" fill="none" stroke="rgba(212,255,71,0.1)" stroke-width="1"/>
-            <polygon points="100,60 140,100 130,150 70,150 60,100" fill="rgba(212,255,71,0.03)" stroke="rgba(212,255,71,0.15)" stroke-width="0.5"/>
-            <line x1="100" y1="20" x2="100" y2="60" stroke="rgba(212,255,71,0.15)" stroke-width="0.5"/>
-            <line x1="20" y1="80" x2="60" y2="100" stroke="rgba(212,255,71,0.15)" stroke-width="0.5"/>
-            <line x1="180" y1="80" x2="140" y2="100" stroke="rgba(212,255,71,0.15)" stroke-width="0.5"/>
-            <line x1="160" y1="170" x2="130" y2="150" stroke="rgba(212,255,71,0.15)" stroke-width="0.5"/>
-            <line x1="40" y1="170" x2="70" y2="150" stroke="rgba(212,255,71,0.15)" stroke-width="0.5"/>
-          </svg>
-        </div>
-      </div>
+      <div class="g-item-bg gb1"><img src="https://picsum.photos/seed/arch/800/600" alt="Void Tower"></div>
       <div class="g-arrow">↗</div>
       <div class="g-overlay">
         <div class="g-info">
@@ -1077,16 +1078,7 @@
     </div>
     <!-- Item 2 -->
     <div class="g-item reveal">
-      <div class="g-item-bg gb2">
-        <div class="g-render">
-          <svg class="g-shape" width="160" height="160" viewBox="0 0 160 160">
-            <rect x="30" y="30" width="100" height="100" fill="none" stroke="rgba(255,107,53,0.25)" stroke-width="1" transform="rotate(15 80 80)"/>
-            <rect x="45" y="45" width="70" height="70" fill="none" stroke="rgba(255,107,53,0.15)" stroke-width="0.8" transform="rotate(30 80 80)"/>
-            <rect x="58" y="58" width="44" height="44" fill="rgba(255,107,53,0.04)" stroke="rgba(255,107,53,0.2)" stroke-width="0.5" transform="rotate(45 80 80)"/>
-            <circle cx="80" cy="80" r="5" fill="rgba(255,107,53,0.4)"/>
-          </svg>
-        </div>
-      </div>
+      <div class="g-item-bg gb2"><img src="https://picsum.photos/seed/product/600/400" alt="Obsidian Flux"></div>
       <div class="g-arrow">↗</div>
       <div class="g-overlay">
         <div class="g-info">
@@ -1097,18 +1089,7 @@
     </div>
     <!-- Item 3 -->
     <div class="g-item reveal">
-      <div class="g-item-bg gb3">
-        <div class="g-render">
-          <svg class="g-shape" width="160" height="160" viewBox="0 0 160 160">
-            <circle cx="80" cy="80" r="60" fill="none" stroke="rgba(130,100,255,0.2)" stroke-width="1"/>
-            <circle cx="80" cy="80" r="45" fill="none" stroke="rgba(130,100,255,0.15)" stroke-width="0.8" stroke-dasharray="4 4"/>
-            <circle cx="80" cy="80" r="30" fill="none" stroke="rgba(130,100,255,0.2)" stroke-width="1"/>
-            <circle cx="80" cy="80" r="10" fill="rgba(130,100,255,0.1)" stroke="rgba(130,100,255,0.4)" stroke-width="1"/>
-            <line x1="20" y1="80" x2="140" y2="80" stroke="rgba(130,100,255,0.1)" stroke-width="0.5"/>
-            <line x1="80" y1="20" x2="80" y2="140" stroke="rgba(130,100,255,0.1)" stroke-width="0.5"/>
-          </svg>
-        </div>
-      </div>
+      <div class="g-item-bg gb3"><img src="https://picsum.photos/seed/abstract/600/400" alt="Orbital Drift"></div>
       <div class="g-arrow">↗</div>
       <div class="g-overlay">
         <div class="g-info">
@@ -1119,15 +1100,7 @@
     </div>
     <!-- Item 4 -->
     <div class="g-item reveal">
-      <div class="g-item-bg gb4">
-        <div class="g-render">
-          <svg class="g-shape" width="120" height="120" viewBox="0 0 120 120">
-            <path d="M60 10 L110 90 L10 90 Z" fill="none" stroke="rgba(255,50,80,0.25)" stroke-width="1"/>
-            <path d="M60 25 L95 85 L25 85 Z" fill="none" stroke="rgba(255,50,80,0.15)" stroke-width="0.8"/>
-            <path d="M60 40 L80 80 L40 80 Z" fill="rgba(255,50,80,0.04)" stroke="rgba(255,50,80,0.2)" stroke-width="0.5"/>
-          </svg>
-        </div>
-      </div>
+      <div class="g-item-bg gb4"><img src="https://picsum.photos/seed/sculpt/400/400" alt="Apex Form"></div>
       <div class="g-arrow">↗</div>
       <div class="g-overlay">
         <div class="g-info">
@@ -1138,16 +1111,7 @@
     </div>
     <!-- Item 5 -->
     <div class="g-item reveal">
-      <div class="g-item-bg gb5">
-        <div class="g-render">
-          <svg class="g-shape" width="120" height="120" viewBox="0 0 120 120">
-            <path d="M20 60 Q60 10 100 60 Q60 110 20 60Z" fill="none" stroke="rgba(212,255,71,0.2)" stroke-width="1"/>
-            <path d="M30 60 Q60 25 90 60 Q60 95 30 60Z" fill="none" stroke="rgba(212,255,71,0.12)" stroke-width="0.8"/>
-            <ellipse cx="60" cy="60" rx="15" ry="15" fill="rgba(212,255,71,0.04)" stroke="rgba(212,255,71,0.25)" stroke-width="0.8"/>
-            <circle cx="60" cy="60" r="3" fill="rgba(212,255,71,0.5)"/>
-          </svg>
-        </div>
-      </div>
+      <div class="g-item-bg gb5"><img src="https://picsum.photos/seed/motion/400/400" alt="Morphic Loop"></div>
       <div class="g-arrow">↗</div>
       <div class="g-overlay">
         <div class="g-info">
@@ -1158,19 +1122,7 @@
     </div>
     <!-- Item 6 -->
     <div class="g-item reveal">
-      <div class="g-item-bg gb6">
-        <div class="g-render">
-          <svg class="g-shape" width="120" height="120" viewBox="0 0 120 120">
-            <rect x="15" y="15" width="90" height="90" fill="none" stroke="rgba(80,160,255,0.2)" stroke-width="1"/>
-            <rect x="25" y="25" width="70" height="70" fill="none" stroke="rgba(80,160,255,0.12)" stroke-width="0.8" transform="rotate(10 60 60)"/>
-            <rect x="40" y="40" width="40" height="40" fill="rgba(80,160,255,0.03)" stroke="rgba(80,160,255,0.2)" stroke-width="0.5" transform="rotate(20 60 60)"/>
-            <line x1="15" y1="15" x2="40" y2="40" stroke="rgba(80,160,255,0.1)" stroke-width="0.5"/>
-            <line x1="105" y1="15" x2="80" y2="40" stroke="rgba(80,160,255,0.1)" stroke-width="0.5"/>
-            <line x1="15" y1="105" x2="40" y2="80" stroke="rgba(80,160,255,0.1)" stroke-width="0.5"/>
-            <line x1="105" y1="105" x2="80" y2="80" stroke="rgba(80,160,255,0.1)" stroke-width="0.5"/>
-          </svg>
-        </div>
-      </div>
+      <div class="g-item-bg gb6"><img src="https://picsum.photos/seed/game/400/400" alt="Grid Nexus"></div>
       <div class="g-arrow">↗</div>
       <div class="g-overlay">
         <div class="g-info">
@@ -1220,7 +1172,7 @@
           <h3 class="step-name">LIGHTING & RENDERING</h3>
           <p class="step-desc">This is where it all comes alive. Crafting cinematic light setups with path-traced renderers for photorealistic output.</p>
         </div>
-        <div class="step-tool">Octane / Redshift</div>
+        <div class="step-tool">Octane / Maya</div>
       </div>
       <div class="process-step">
         <div class="step-num">05</div>
@@ -1297,7 +1249,7 @@
 
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-logo">AXON</div>
+  <div class="footer-logo">ABHISHEK</div>
   <div class="footer-copy">© 2025 · All Rights Reserved · Crafted with light & geometry</div>
   <div class="footer-socials">
     <a href="#">Instagram</a>
